@@ -19,7 +19,7 @@ public class Animals {
     public void run() {
         try (Lamb l = new Lamb();) {
             throw new IOException();
-        } catch (Exception e) {
+        } catch (Exception ex) {
             throw new RuntimeException("c");
         }
     }
