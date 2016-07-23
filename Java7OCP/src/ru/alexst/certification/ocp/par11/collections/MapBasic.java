@@ -3,16 +3,14 @@
  */
 package ru.alexst.certification.ocp.par11.collections;
 
-import java.util.Collection;
+import static java.lang.System.out;
+
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-
-import static java.lang.System.out;
 
 /*
 public interface Map<K,V> {
- 1	 int size();
+ 1   int size();
  2   boolean containsKey(Object key);
  3   boolean containsValue(Object value);
  4   V get(Object key);
@@ -29,17 +27,17 @@ public interface Map<K,V> {
  */
 public class MapBasic {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Map<String, Integer> m = new HashMap<>();
-		m.put("stringKey", 5);
-		m.put("2", 2);
-		
-		out.println(m.get("2"));
-		out.println(m.containsKey("3"));
-		
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Map<String, Integer> m = new HashMap<>();
+        m.put("stringKey", 5);
+        m.put("2", 2);
+
+        out.println(m.get("2"));
+        out.println(m.containsKey("3"));
+
+    }
 
 }

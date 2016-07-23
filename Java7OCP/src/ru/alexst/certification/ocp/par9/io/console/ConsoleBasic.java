@@ -10,14 +10,14 @@ Launch from cmd
 
 public class ConsoleBasic {
 
-	public static void main(String args[]) {
-		Console console = System.console();
-		String s = "";
-		String string = console.readLine("Enter line:");
-		char[] ch = console.readPassword("Enter password:");
-		console.writer().println("Ho ho ho");
-		console.writer().println("The password is: "+new String(ch));
-		console.flush();
-	}
-	
+    public static void main(String args[]) {
+        Console console = System.console();
+        String s = "";
+        String string = console.readLine("Enter line:");
+        char[] ch = console.readPassword("Enter password:");
+        console.writer().println("Ho ho ho");
+        console.writer().println("The password is: " + new String(ch));
+        console.flush();
+    }
+
 }

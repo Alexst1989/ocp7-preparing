@@ -17,15 +17,27 @@ would have gotten a NullPointerException.)
  */
 
 public class WorkWithFile {
-	
-	public static void main(String args[]) throws IOException {
-		File file = new File(insertHome("workwithfile.txt"));
-		System.out.println(file.delete());	//Удалили
-		
-		System.out.println(file.createNewFile());	
-		System.out.println(file.createNewFile()); 				//Если файл уже существует, то он не создается заново
-		
-		System.out.println(file.delete());	
-	}
+
+    public static void main(String args[]) {
+        File file = new File(insertHome("workwithfile.txt"));
+        System.out.println(file.delete()); // Удалили
+
+        try {
+            System.out.println(file.createNewFile());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            // Если файл уже существует,
+            // то он не создается заново
+            System.out.println(file.createNewFile());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
+
+        System.out.println(file.delete());
+    }
 
 }

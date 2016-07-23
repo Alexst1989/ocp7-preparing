@@ -21,7 +21,7 @@ public class FileBasic {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         File file = new File(insertHome("file1.txt"));
-
+        
         // Two exception, one from close method (Writer) and one from
         // PrintWriter constructor
         try (Writer wr = new PrintWriter(file)) {

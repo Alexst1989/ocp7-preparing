@@ -86,44 +86,44 @@ import java.util.Queue;
  
  */
 public class QueueBasic {
-	
-	public static void main(String args[]) {
-		
-		Queue<String> queueList = new LinkedList<String>();
-		Queue<String> queuePriority = new PriorityQueue<String>(4);
-		addQueue(queueList);
-		addQueue(queuePriority);
-		
-		offerQueue(queueList);
-		offerQueue(queuePriority);
-	}
-	
-	public static void addQueue(Queue<String> q) {
-		q.clear();
-		q.add("One");
-		q.add("Two");
-		q.add("Three");
-		q.add("Four");
-		q.add("Five");
-		printQueue(q);
-	}
-	
-	public static void offerQueue(Queue<String> q) {
-		q.clear();
-		q.offer("One");
-		q.offer("Two");
-		q.offer("Three");
-		q.offer("Four");
-		q.offer("Five");
-		printQueue(q);
-	}
-	
-	public static void printQueue(Queue<?> q) {
-		System.out.println("=========== Start =============");
-		for (Object o : q) {
-			System.out.println(o);
-		}
-		System.out.println("============ End ==============");
-	}
+
+    public static void main(String args[]) {
+
+        Queue<String> queueList = new LinkedList<String>();
+        Queue<String> queuePriority = new PriorityQueue<String>(4);
+        addQueue(queueList);
+        addQueue(queuePriority);
+
+        offerQueue(queueList);
+        offerQueue(queuePriority);
+    }
+
+    public static void addQueue(Queue<String> q) {
+        q.clear();
+        q.add("One");
+        q.add("Two");
+        q.add("Three");
+        q.add("Four");
+        q.add("Five");
+        printQueue(q);
+    }
+
+    public static void offerQueue(Queue<String> q) {
+        q.clear();
+        q.offer("One");
+        q.offer("Two");
+        q.offer("Three");
+        q.offer("Four");
+        q.offer("Five");
+        printQueue(q);
+    }
+
+    public static void printQueue(Queue<?> q) {
+        System.out.println("=========== Start =============");
+        for (Object o : q) {
+            System.out.println(o);
+        }
+        System.out.println("============ End ==============");
+    }
 
 }
