@@ -20,19 +20,19 @@ import java.util.Set;
  */
 public class PosixFileAttributeLearn {
 
-	/**
-	 * @param args
-	 * @throws IOException 
-	 */
-	public static void main(String[] args) throws IOException {
-		String homePath = insertHome();
-		
-		Path path = Paths.get(homePath+"\\posixDir");
-		PosixFileAttributeView posixView = Files.getFileAttributeView(path, PosixFileAttributeView.class);
-		Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
-		posixView.setPermissions(perms);
-		Files.setPosixFilePermissions(path, perms);
+    /**
+     * @param args
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+        String homePath = insertHome();
 
-	}
+        Path path = Paths.get(homePath + "\\posixDir");
+        PosixFileAttributeView posixView = Files.getFileAttributeView(path, PosixFileAttributeView.class);
+        Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
+        posixView.setPermissions(perms);
+        Files.setPosixFilePermissions(path, perms);
+
+    }
 
 }

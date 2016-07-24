@@ -24,22 +24,22 @@ actually exist.
  */
 public class NormalizingPath {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		String homePath = insertHome();
-		
-		Path p = Paths.get(homePath);
-		
-		System.out.println(Paths.get("/a/./b/./c").normalize());
-		System.out.println(Paths.get(".classpath").normalize());
-		System.out.println(Paths.get("/a/b/c/..").normalize());
-		//Pay attention !!!!!!!!!!!
-		//The two dots do say to go up one directory. But since there
-		//isn't a directory before it, Path can't simplify it.
-		System.out.println("Pay attention !!!!!!!!!!!");
-		System.out.println(Paths.get("../a/b/c").normalize());
-	}
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        String homePath = insertHome();
+
+        Path p = Paths.get(homePath);
+
+        System.out.println(Paths.get("/a/./b/./c").normalize());
+        System.out.println(Paths.get(".classpath").normalize());
+        System.out.println(Paths.get("/a/b/c/..").normalize());
+        // Pay attention !!!!!!!!!!!
+        // The two dots do say to go up one directory. But since there
+        // isn't a directory before it, Path can't simplify it.
+        System.out.println("Pay attention !!!!!!!!!!!");
+        System.out.println(Paths.get("../a/b/c").normalize());
+    }
 
 }

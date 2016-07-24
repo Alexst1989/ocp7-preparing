@@ -13,8 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Objects;
-
 
 /*
 /**
@@ -33,7 +31,7 @@ import java.util.Objects;
      * FileVisitor#preVisitDirectory preVisitDirectory} method; otherwise
      * this result type is the same as returning {@link #CONTINUE}.
      *
-    SKIP_SUBTREE,		!!!!!!!!!!!!!!!!!!!!
+    SKIP_SUBTREE,       !!!!!!!!!!!!!!!!!!!!
     /*
      * Continue without visiting the <em>siblings</em> of this file or directory.
      * If returned from the {@link FileVisitor#preVisitDirectory
@@ -63,7 +61,7 @@ import java.util.Objects;
 *********************************
 *if (Objects.requireNonNull(result) != FileVisitResult.CONTINUE) {
     if (result == FileVisitResult.TERMINATE) {
-        break;				!!!!!!!!!!!!!!!!!!!!
+        break;              !!!!!!!!!!!!!!!!!!!!
     } else if (result == FileVisitResult.SKIP_SIBLINGS) {
         walker.skipRemainingSiblings();
     }
@@ -75,92 +73,97 @@ import java.util.Objects;
  *
  */
 public class FileVisitorBasic extends SimpleFileVisitor<Path> {
-	
-	/* (non-Javadoc)
-	 * @see java.nio.file.SimpleFileVisitor#visitFile(java.lang.Object, java.nio.file.attribute.BasicFileAttributes)
-	 */
-	@Override
-	public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-		Path path = Paths.get(insertHome());
-		if (file.startsWith(path)) {
-			System.out.println(String.format("file name:%s", file.getFileName().toString()));
-		}
-		if (file.getFileName().endsWith("fileX2.txt")) {
-			
-			//return FileVisitResult.SKIP_SIBLINGS;
-		}
-		return FileVisitResult.CONTINUE;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.nio.file.SimpleFileVisitor#preVisitDirectory(java.lang.Object, java.nio.file.attribute.BasicFileAttributes)
-	 */
-	@Override
-	public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-		System.out.println(String.format("pre visit dir:%s", dir.getFileName().toString()));
-		if (dir.endsWith("y")) {
-			//if returned by preVisitDirectory, postVisitDirectory won't be called
-			//parent elements will be walked through
-			//Skip all entries in "y"
-			//return FileVisitResult.SKIP_SIBLINGS;
-		}
-		if (dir.endsWith("y")) {
-			//For preVisitDir the same as SKIP_SIBLINGS
-			return FileVisitResult.SKIP_SUBTREE;
-		}
-		return FileVisitResult.CONTINUE;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.nio.file.SimpleFileVisitor#postVisitDirectory(java.lang.Object, java.io.IOException)
-	 */
-	@Override
-	public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-		System.out.println(String.format("post visit dir:%s", dir.getFileName().toString()));
-		if (dir.endsWith("x")) {
-			//In this case like CONTINUE
-			return FileVisitResult.SKIP_SUBTREE;
-		}
-		return FileVisitResult.CONTINUE;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.nio.file.SimpleFileVisitor#visitFileFailed(java.lang.Object, java.io.IOException)
-	 */
-	@Override
-	public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-		return super.visitFileFailed(file, exc);
-	}
-	
-	public static void main(String args[]) throws IOException {
-		FileVisitorBasic fvb = new FileVisitorBasic();
-		Path path = Paths.get(insertHome()+"\\x");
-		printDir(path);
-		Files.walkFileTree(path, fvb);
-		
-	}
-	
-	public static void printDir(Path path) throws IOException {
-		System.out.println(String.format("=====  Start %s  ==============", path.toString()));
-		recursivePrint(path);
-		System.out.println(String.format("======= END  %s  ==============", path.toString()));
-	}
-	
-	private static void recursivePrint(Path path) throws IOException {
-		DirectoryStream<Path> ds = Files.newDirectoryStream(path);
-		for (Path p:ds) {
-			if (Files.isDirectory(p)) {
-				recursivePrint(p);
-			}
-			System.out.println(relativeFromHome(p).toString());
-		}
-	}
-	
-	public static Path relativeFromHome(Path path) {
-		return Paths.get(insertHome()).relativize(path);
-	}
-	
-	
-	
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.file.SimpleFileVisitor#visitFile(java.lang.Object, java.nio.file.attribute.BasicFileAttributes)
+     */
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+        Path path = Paths.get(insertHome());
+        if (file.startsWith(path)) {
+            System.out.println(String.format("file name:%s", file.getFileName().toString()));
+        }
+        if (file.getFileName().endsWith("fileX2.txt")) {
+
+            // return FileVisitResult.SKIP_SIBLINGS;
+        }
+        return FileVisitResult.CONTINUE;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.file.SimpleFileVisitor#preVisitDirectory(java.lang.Object, java.nio.file.attribute.BasicFileAttributes)
+     */
+    @Override
+    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+        System.out.println(String.format("pre visit dir:%s", dir.getFileName().toString()));
+        if (dir.endsWith("y")) {
+            // if returned by preVisitDirectory, postVisitDirectory won't be called
+            // parent elements will be walked through
+            // Skip all entries in "y"
+            // return FileVisitResult.SKIP_SIBLINGS;
+        }
+        if (dir.endsWith("y")) {
+            // For preVisitDir the same as SKIP_SIBLINGS
+            return FileVisitResult.SKIP_SUBTREE;
+        }
+        return FileVisitResult.CONTINUE;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.file.SimpleFileVisitor#postVisitDirectory(java.lang.Object, java.io.IOException)
+     */
+    @Override
+    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+        System.out.println(String.format("post visit dir:%s", dir.getFileName().toString()));
+        if (dir.endsWith("x")) {
+            // In this case like CONTINUE
+            return FileVisitResult.SKIP_SUBTREE;
+        }
+        return FileVisitResult.CONTINUE;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.nio.file.SimpleFileVisitor#visitFileFailed(java.lang.Object, java.io.IOException)
+     */
+    @Override
+    public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+        return super.visitFileFailed(file, exc);
+    }
+
+    public static void main(String args[]) throws IOException {
+        FileVisitorBasic fvb = new FileVisitorBasic();
+        Path path = Paths.get(insertHome() + "\\x");
+        printDir(path);
+        Files.walkFileTree(path, fvb);
+
+    }
+
+    public static void printDir(Path path) throws IOException {
+        System.out.println(String.format("=====  Start %s  ==============", path.toString()));
+        recursivePrint(path);
+        System.out.println(String.format("======= END  %s  ==============", path.toString()));
+    }
+
+    private static void recursivePrint(Path path) throws IOException {
+        DirectoryStream<Path> ds = Files.newDirectoryStream(path);
+        for (Path p : ds) {
+            if (Files.isDirectory(p)) {
+                recursivePrint(p);
+            }
+            System.out.println(relativeFromHome(p).toString());
+        }
+    }
+
+    public static Path relativeFromHome(Path path) {
+        return Paths.get(insertHome()).relativize(path);
+    }
 
 }

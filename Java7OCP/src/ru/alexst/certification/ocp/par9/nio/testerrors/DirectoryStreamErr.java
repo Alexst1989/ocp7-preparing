@@ -17,25 +17,24 @@ import static ru.alexst.certification.ocp.par9.io.files.FileBasic.insertHome;
  */
 
 /*
- 
- Code compiles but does not output anything !!!!!!!!!!!!!!
- Cant be "\" in a glob, because directoryStream looks immediate files in its dir!!!!!!
- 
+ * 
+ * Code compiles but does not output anything !!!!!!!!!!!!!! Cant be "\" in a glob, because directoryStream looks immediate files in its dir!!!!!!
+ * 
  */
 public class DirectoryStreamErr {
 
-	/**
-	 * @param args
-	 * @throws IOException 
-	 */
-	public static void main(String[] args) throws IOException {
-		Path dir = Paths.get(insertHome());
-		//try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "**/*.txt")) { //Can't be
-		try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.txt")) { //can be
-			for (Path path : stream) {
-				System.out.println(path);
-			} 
-		}
-	}
+    /**
+     * @param args
+     * @throws IOException
+     */
+    public static void main(String[] args) throws IOException {
+        Path dir = Paths.get(insertHome());
+        // try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "**/*.txt")) { //Can't be
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir, "*.txt")) { // can be
+            for (Path path : stream) {
+                System.out.println(path);
+            }
+        }
+    }
 
 }
