@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 public class JdbcBasic {
     
     static {
-        URL url = Thread.currentThread().getContextClassLoader().getResource("log4j.properties");
+        URL url = Thread.currentThread().getContextClassLoader().getResource("log4j2.properties");
         System.out.println(url);
     }
     
@@ -34,9 +34,6 @@ public class JdbcBasic {
                         resultSet.getString("ID"), 
                         resultSet.getString("SHORT_NAME"), 
                         resultSet.getString("FULL_NAME")));
-                System.out.print(resultSet.getString("ID") + "\t");
-                System.out.print(resultSet.getString("SHORT_NAME") + "\t\t");
-                System.out.println(resultSet.getString("FULL_NAME"));
             }
         } catch (SQLException e) {
             LOGGER.info("SQL Exception", e);
