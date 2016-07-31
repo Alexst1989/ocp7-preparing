@@ -9,24 +9,11 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class JdbcBasic {
+public class PrepairedStatement {
 
-    static {
-        /*LoggerContext context = (LoggerContext) LogManager.getContext(false);
-        URL url = Thread.currentThread().getContextClassLoader().getResource("ru/alexst/certification/ocp/logger/log4j2.properties");
-        System.out.println(url);
+    private static final Logger LOGGER = LogManager.getLogger(PrepairedStatement.class);
 
-        try {
-            context.setConfigLocation(url.toURI());
-        } catch (URISyntaxException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }*/
-    }
-
-    private static final Logger LOGGER = LogManager.getLogger(JdbcBasic.class);
-
-    private static final String TEST_QUERY = "SELECT * FROM books";
+    private static final String PREPAIRED_STRING = "SELECT * FROM books WHERE full_name like ?";
 
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -34,7 +21,8 @@ public class JdbcBasic {
         String user = "WEBSERVICE";
         String pass = "WEBSERVICE";
         try (Connection conn = DriverManager.getConnection(connString, user, pass)) {
-            PreparedStatement stmt = conn.prepareStatement(TEST_QUERY);
+            PreparedStatement stmt = conn.prepareStatement(PREPAIRED_STRING);
+            stmt.setString(1, "%Pol%");
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()) {
                 LOGGER.info(String.format("%s %s %s", resultSet.getString("ID"), resultSet.getString("SHORT_NAME"), resultSet.getString("FULL_NAME")));
