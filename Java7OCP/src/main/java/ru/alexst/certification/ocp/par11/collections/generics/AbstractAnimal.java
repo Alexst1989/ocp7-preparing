@@ -8,7 +8,7 @@ package ru.alexst.certification.ocp.par11.collections.generics;
  *
  */
 public abstract class AbstractAnimal {
-	
-	public abstract void checkup();
-	
+
+    public abstract void checkup();
+
 }

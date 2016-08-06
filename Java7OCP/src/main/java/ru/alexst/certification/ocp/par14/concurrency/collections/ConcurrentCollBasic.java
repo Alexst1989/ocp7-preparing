@@ -21,29 +21,27 @@ can return elements from the point in time the Iterator was created or later.
  
  */
 public class ConcurrentCollBasic {
-	
-	public static void main(String args[]) {
-		ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
-		
-		concurrentHashMap.put("1", 123321);
-		System.out.println(String.format("Size = %s", concurrentHashMap.size()));
-		System.out.println(String.format("Integer with key 1 = %s", concurrentHashMap.get("1")));
-		concurrentHashMap.putIfAbsent("1", 666666);
-		System.out.println(String.format("Integer with key 1 = %s", concurrentHashMap.get("1")));
 
-		
-		ConcurrentLinkedDeque<String> ConcurrentLinkedDeque = new ConcurrentLinkedDeque<String>();
-		ConcurrentLinkedDeque.offer("5"); //First in queue
-		ConcurrentLinkedDeque.offer("15");
-		ConcurrentLinkedDeque.offer("10");
-		System.out.println(String.format("Next = %s", ConcurrentLinkedDeque.poll())); //retreives and removes the head of the queue
-		
+    public static void main(String args[]) {
+        ConcurrentHashMap<String, Integer> concurrentHashMap = new ConcurrentHashMap<>();
 
-		System.out.println();
-		
-		for (String s : ConcurrentLinkedDeque) {
-			System.out.println(s);
-		}
-	}
-	
+        concurrentHashMap.put("1", 123321);
+        System.out.println(String.format("Size = %s", concurrentHashMap.size()));
+        System.out.println(String.format("Integer with key 1 = %s", concurrentHashMap.get("1")));
+        concurrentHashMap.putIfAbsent("1", 666666);
+        System.out.println(String.format("Integer with key 1 = %s", concurrentHashMap.get("1")));
+
+        ConcurrentLinkedDeque<String> concurrentLinkedDeque = new ConcurrentLinkedDeque<String>();
+        concurrentLinkedDeque.offer("5"); // First in queue
+        concurrentLinkedDeque.offer("15");
+        concurrentLinkedDeque.offer("10");
+        System.out.println(String.format("Next = %s", concurrentLinkedDeque.poll())); // retreives and removes the head of the queue
+
+        System.out.println();
+
+        for (String s : concurrentLinkedDeque) {
+            System.out.println(s);
+        }
+    }
+
 }

@@ -4,9 +4,9 @@ import java.sql.SQLException;
 
 public class AutoCloseableClass implements AutoCloseable {
 
-	@Override
-	public void close() throws SQLException {
-		System.out.println("FIRSTLY close method in AutoCloseableClass");
-	}
+    @Override
+    public void close() throws SQLException {
+        System.out.println("FIRSTLY close method in AutoCloseableClass");
+    }
 
 }

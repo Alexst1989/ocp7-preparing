@@ -16,44 +16,45 @@ fail to acquire both locks.
  */
 
 public class LiveLock {
-	
-	public static void main(String argsp[]) {
-		Lock l1 = new ReentrantLock();
-		Lock l2 = new ReentrantLock();
-		Thread t1 = new Thread(new Locker2(l1, l2));
-		Thread t2 = new Thread(new Locker2(l1, l2));
-		t1.start();
-		t2.start();
-	}
+
+    public static void main(String argsp[]) {
+        Lock l1 = new ReentrantLock();
+        Lock l2 = new ReentrantLock();
+        Thread t1 = new Thread(new Locker2(l1, l2));
+        Thread t2 = new Thread(new Locker2(l1, l2));
+        t1.start();
+        t2.start();
+    }
 
 }
 
 class Locker2 implements Runnable {
 
-	private Lock l1;
-	private Lock l2;
-	
-	public Locker2(Lock l1, Lock l2) {
-		this.l1 = l1;
-		this.l2 = l2;
-	}
-	
-	@Override
-	public void run() {
-	loop2:
-		while (true) {
-			boolean aq2 = l2.tryLock();
-			boolean aq1 = l1.tryLock();
-			try {
-				if (aq1 && aq2) {
-					// work
-					break loop2;
-				}
-			} finally {
-				if (aq2) l2.unlock();
-				if (aq1) l1.unlock();
-			}
-		}
-	}
-	
+    private Lock l1;
+    private Lock l2;
+
+    public Locker2(Lock l1, Lock l2) {
+        this.l1 = l1;
+        this.l2 = l2;
+    }
+
+    @Override
+    public void run() {
+        loop2: while (true) {
+            boolean aq2 = l2.tryLock();
+            boolean aq1 = l1.tryLock();
+            try {
+                if (aq1 && aq2) {
+                    // work
+                    break loop2;
+                }
+            } finally {
+                if (aq2)
+                    l2.unlock();
+                if (aq1)
+                    l1.unlock();
+            }
+        }
+    }
+
 }

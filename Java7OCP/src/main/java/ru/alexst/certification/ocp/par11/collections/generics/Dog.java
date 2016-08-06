@@ -8,9 +8,9 @@ package ru.alexst.certification.ocp.par11.collections.generics;
  *
  */
 public class Dog extends AbstractAnimal {
-	
-	public void checkup() { // implement Dog-specific code
-		System.out.println("Dog checkup");
-	}
-	
+
+    public void checkup() { // implement Dog-specific code
+        System.out.println("Dog checkup");
+    }
+
 }

@@ -35,75 +35,79 @@ unequal objects may improve the performance of hashtables.
  */
 public class EqualsHashCodeContract {
 
-	private String s;
-	
-	private Integer i;
+    private String s;
 
-	/**
-	 * @return the s
-	 */
-	public String getS() {
-		return s;
-	}
+    private Integer i;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((i == null) ? 0 : i.hashCode());
-		result = prime * result + ((s == null) ? 0 : s.hashCode());
-		return result;
-	}
+    /**
+     * @return the s
+     */
+    public String getS() {
+        return s;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EqualsHashCodeContract other = (EqualsHashCodeContract) obj;
-		if (i == null) {
-			if (other.i != null)
-				return false;
-		} else if (!i.equals(other.i))
-			return false;
-		if (s == null) {
-			if (other.s != null)
-				return false;
-		} else if (!s.equals(other.s))
-			return false;
-		return true;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((i == null) ? 0 : i.hashCode());
+        result = prime * result + ((s == null) ? 0 : s.hashCode());
+        return result;
+    }
 
-	/**
-	 * @param s the s to set
-	 */
-	public void setS(String s) {
-		this.s = s;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        EqualsHashCodeContract other = (EqualsHashCodeContract) obj;
+        if (i == null) {
+            if (other.i != null)
+                return false;
+        } else if (!i.equals(other.i))
+            return false;
+        if (s == null) {
+            if (other.s != null)
+                return false;
+        } else if (!s.equals(other.s))
+            return false;
+        return true;
+    }
 
-	/**
-	 * @return the i
-	 */
-	public Integer getI() {
-		return i;
-	}
+    /**
+     * @param s
+     *            the s to set
+     */
+    public void setS(String s) {
+        this.s = s;
+    }
 
-	/**
-	 * @param i the i to set
-	 */
-	public void setI(Integer i) {
-		this.i = i;
-	}
-	
-	
-	
+    /**
+     * @return the i
+     */
+    public Integer getI() {
+        return i;
+    }
+
+    /**
+     * @param i
+     *            the i to set
+     */
+    public void setI(Integer i) {
+        this.i = i;
+    }
+
 }

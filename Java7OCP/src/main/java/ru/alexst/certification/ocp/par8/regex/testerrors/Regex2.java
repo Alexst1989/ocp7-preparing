@@ -7,15 +7,16 @@ package ru.alexst.certification.ocp.par8.regex.testerrors;
   of any character in the string, except decimals
  
  */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import java.util.regex.*;
 class Regex2 {
-public static void main(String[] args) {
-Pattern p = Pattern.compile("\\d*");
-Matcher m = p.matcher("ab34ef");
-boolean b = false;
-while(b = m.find()) {
-System.out.print(m.start() + m.group());
-}
-}
+    public static void main(String[] args) {
+        Pattern p = Pattern.compile("\\d*");
+        Matcher m = p.matcher("ab34ef");
+        boolean b = false;
+        while (b = m.find()) {
+            System.out.print(m.start() + m.group());
+        }
+    }
 }

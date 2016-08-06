@@ -2,7 +2,6 @@ package ru.alexst.certification.ocp.par8.resourcebundels;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.ResourceBundle.Control;
 
 /*
  
@@ -52,23 +51,23 @@ If in Locale.java bundle there is not String key a runtime exception will occur
 
 public class BundleTest {
 
-	public static void main(String[] args) {
-		Locale ruLocale = new Locale("ru", "rus");
-		Locale enLocale = new Locale("en", "eng");
-		Locale defaultLoc = Locale.getDefault();
+    public static void main(String[] args) {
+        Locale ruLocale = new Locale("ru", "rus");
+        Locale enLocale = new Locale("en", "eng");
+        Locale defaultLoc = Locale.getDefault();
 
-		
-		ResourceBundle ruRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.locale", ruLocale);
-		
-		ResourceBundle enRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.locale", enLocale);
-		//Не для экзамена, но запомни что defaultLocale для России ru_RU
-		
-		ResourceBundle defaultRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.Locale", defaultLoc); 
-		
-		System.out.println(ruRb.getString("text"));
-		System.out.println(enRb.getString("text"));
-		
-		System.out.println((StringBuilder) defaultRb.getObject("second"));
-	}
+        ResourceBundle ruRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.locale", ruLocale);
+
+        ResourceBundle enRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.locale", enLocale);
+        // Не для экзамена, но запомни что defaultLocale для России ru_RU
+
+        ResourceBundle defaultRb = ResourceBundle.getBundle("ru.alexst.certification.ocp.par8.resources.Locale",
+                defaultLoc);
+
+        System.out.println(ruRb.getString("text"));
+        System.out.println(enRb.getString("text"));
+
+        System.out.println((StringBuilder) defaultRb.getObject("second"));
+    }
 
 }

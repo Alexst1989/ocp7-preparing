@@ -14,9 +14,9 @@ import java.util.Locale;
 
 public class LocaleBasic {
 
-	public static void main(String[] args) {
-		Locale loc = Locale.ENGLISH;
-		System.out.println(String.format("%s %s", loc.getLanguage(), loc.getCountry()));
-	}
+    public static void main(String[] args) {
+        Locale loc = Locale.ENGLISH;
+        System.out.println(String.format("%s %s", loc.getLanguage(), loc.getCountry()));
+    }
 
 }

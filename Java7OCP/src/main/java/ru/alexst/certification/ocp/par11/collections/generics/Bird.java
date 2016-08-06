@@ -8,9 +8,9 @@ package ru.alexst.certification.ocp.par11.collections.generics;
  *
  */
 public class Bird extends AbstractAnimal {
-	
-	public void checkup() { // implement Bird-specific code
-		System.out.println("Bird checkup");
-	}
-	
+
+    public void checkup() { // implement Bird-specific code
+        System.out.println("Bird checkup");
+    }
+
 }
