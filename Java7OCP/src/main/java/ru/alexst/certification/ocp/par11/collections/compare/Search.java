@@ -3,7 +3,10 @@
  */
 package ru.alexst.certification.ocp.par11.collections.compare;
 
-import static ru.alexst.certification.ocp.par11.collections.Helper.*;
+import static ru.alexst.certification.ocp.par11.collections.Helper.getArray;
+import static ru.alexst.certification.ocp.par11.collections.Helper.getArrayList;
+import static ru.alexst.certification.ocp.par11.collections.Helper.printIntArray;
+import static ru.alexst.certification.ocp.par11.collections.Helper.printList;
 
 import java.util.Arrays;
 import java.util.Collections;

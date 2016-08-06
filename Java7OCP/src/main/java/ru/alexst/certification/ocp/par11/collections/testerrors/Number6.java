@@ -11,19 +11,34 @@ public class Number6 {
 
 }
 
-interface Hungry<E> { void munch(E x); }
-interface Carnivore<E extends Animal> extends Hungry<E> {}
-interface Herbivore<E extends Plant> extends Hungry<E> {}
-abstract class Plant {}
-class Grass extends Plant {}
-abstract class Animal {}
-/*class Sheep extends Animal implements Herbivore<Sheep> {
-public void munch(Sheep x) {}
-}
-*/class Wolf extends Animal implements Carnivore<Sheep> {
-public void munch(Sheep x) {}
+interface Hungry<E> {
+    void munch(E x);
 }
 
-class Sheep extends Plant implements Carnivore<Wolf> {
-public void munch(Wolf x) {}
+interface Carnivore<E extends AbstractAnimal> extends Hungry<E> {
+}
+
+interface Herbivore<E extends AbstractPlant> extends Hungry<E> {
+}
+
+abstract class AbstractPlant {
+}
+
+class Grass extends AbstractPlant {
+}
+
+abstract class AbstractAnimal {
+}
+
+/*
+ * class Sheep extends Animal implements Herbivore<Sheep> { public void munch(Sheep x) {} }
+ */
+class Wolf extends AbstractAnimal implements Carnivore<Sheep> {
+    public void munch(Sheep x) {
+    }
+}
+
+class Sheep extends AbstractPlant implements Carnivore<Wolf> {
+    public void munch(Wolf x) {
+    }
 }

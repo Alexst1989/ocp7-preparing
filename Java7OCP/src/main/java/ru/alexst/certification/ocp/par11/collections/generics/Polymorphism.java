@@ -31,12 +31,12 @@ public class Polymorphism {
 		Object[] myArray = new Integer[3]; //OK
 		
 		//It is OK for collection
-		List<Animal> animalList = new ArrayList<Animal>();
+		List<AbstractAnimal> animalList = new ArrayList<AbstractAnimal>();
 		animalList.add(new Dog());
 		animalList.add(new Cat());
 		
 		//It is OK for array
-		Animal[] animalArray = new Animal[10];
+		AbstractAnimal[] animalArray = new AbstractAnimal[10];
 		animalArray[0] = new Dog();
 		animalArray[1] = new Bird();
 		
@@ -61,11 +61,11 @@ public class Polymorphism {
 		AnimalDoctor.holyShit(catArray);
 		
 		List<?> list = new ArrayList<Dog>();
-		List<? extends Animal> aList = new ArrayList<Dog>();
+		List<? extends AbstractAnimal> aList = new ArrayList<Dog>();
 		aList.add(null); //Can't add anything but null
 		//List<?> foo = new ArrayList<? extends Animal>(); //Compilation error !!!!!! You cannot use wildcard notation in the object creation.
 		//List<? extends Dog> cList = new ArrayList<Integer>(); //Compilation error !!!!!! You cannot assign an Integer list to a reference that takes only a Dog
-		List<? super Dog> bList = new ArrayList<Animal>();
+		List<? super Dog> bList = new ArrayList<AbstractAnimal>();
 		bList.add(new Dog()); //Only Dog can be added!!!
 		//List<? super Animal> dList = new ArrayList<Dog>(); //Compilation error !!!!!! 
 		//You cannot assign a Dog to <? super Animal>. The Dog is too "low" in the class hierarchy
@@ -84,20 +84,20 @@ class Child extends Parent { }
 
 class AnimalDoctor {
 	// method takes an array of any animal subtype
-	public static void checkAnimalArray(Animal[] animalArray) {
-		for(Animal a : animalArray) {
+	public static void checkAnimalArray(AbstractAnimal[] animalArray) {
+		for(AbstractAnimal a : animalArray) {
 			a.checkup();
 		}
 	}
 	
-	public static void checkAnimalList(List<Animal> animalList) {
-		for(Animal a : animalList) {
+	public static void checkAnimalList(List<AbstractAnimal> animalList) {
+		for(AbstractAnimal a : animalList) {
 			a.checkup();
 		}
 	}
 	
 	
-	public static void holyShit(Animal[] animalArray) {
+	public static void holyShit(AbstractAnimal[] animalArray) {
 		//If you put Cat[] array in this method, this code will compile, but RuntimeException occurs
 		/*
 		 But there IS no equivalent exception for generics because of type erasure! In other
@@ -107,9 +107,9 @@ of a collection.
 		animalArray[0] = new Dog();
 	}
 	
-	public static void checkAnimalWildcard(List<? extends Animal> animalList) {
+	public static void checkAnimalWildcard(List<? extends AbstractAnimal> animalList) {
 		//? extends Animal means that I SWEAR THAT I WILL NOT ADD anything into the collection !!!!!!!!!!!!!!!!!
-		for(Animal a : animalList) {
+		for(AbstractAnimal a : animalList) {
 			a.checkup();
 		}
 		//animalList.add(new Cat()); //Compilation error

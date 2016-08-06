@@ -7,7 +7,7 @@ package ru.alexst.certification.ocp.par11.collections.generics;
  * @author Алексей
  *
  */
-public class AnimalHolder<T extends Animal> { // use "T" instead of "?"
+public class AnimalHolder<T extends AbstractAnimal> { // use "T" instead of "?"
 	
 	T animal;
 	
