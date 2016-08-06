@@ -1,3 +1,7 @@
 /target/
 /.settings/
 /ojdbc/
+
+.project
+.classpath
+.checkstyle
