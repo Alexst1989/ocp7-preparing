@@ -16,7 +16,7 @@ public class Number1 {
         // INSERT DECLARATION HERE
         // List<List<Integer>> table = new List<List<Integer>>();
         List<List<Integer>> table = new ArrayList<List<Integer>>();
-        // List<List<Integer>> table = new ArrayList<ArrayList<Integer>>();
+         //List<List<Integer>> table2 = new ArrayList<ArrayList<Integer>>();
         // List<List, Integer> table = new List<List, Integer>();
         // List<List, Integer> table = new ArrayList<List, Integer>();
         // List<List, Integer> table = new ArrayList<ArrayList, Integer>();

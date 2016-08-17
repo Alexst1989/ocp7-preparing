@@ -14,6 +14,7 @@ public class ConsoleBasic {
         Console console = System.console();
         String string = console.readLine("Enter line:");
         char[] ch = console.readPassword("Enter password:");
+        //String s = console.readPassword("Enter password:"); //Compilation error!
         console.writer().println("Ho ho ho");
         console.writer().println("The password is: " + new String(ch));
         console.flush();

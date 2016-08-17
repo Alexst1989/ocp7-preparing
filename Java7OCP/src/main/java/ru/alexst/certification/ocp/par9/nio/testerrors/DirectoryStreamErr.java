@@ -18,7 +18,8 @@ import static ru.alexst.certification.ocp.par9.io.files.FileBasic.insertHome;
 
 /*
  * 
- * Code compiles but does not output anything !!!!!!!!!!!!!! Cant be "\" in a glob, because directoryStream looks immediate files in its dir!!!!!!
+ * Code compiles but does not output anything !!!!!!!!!!!!!! Cant be "\" in a glob, 
+ * because directoryStream looks immediate files in its dir!!!!!!
  * 
  */
 public class DirectoryStreamErr {
