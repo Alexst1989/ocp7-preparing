@@ -4,7 +4,7 @@
 package ru.alexst.certification.ocp.par11.collections.testerrors;
 
 /*
-Before using binarySarch Array or Collection must be sorted!!!
+Before using binarySarch Array or Collection must be sorted A -> Z!!!
  
  */
 import java.util.Arrays;
