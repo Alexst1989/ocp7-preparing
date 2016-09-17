@@ -10,8 +10,8 @@ public class Numer8 {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> input = null;
-        ArrayList<Integer> output = null;
+        List<Integer> input = null;
+        List<Integer> output = null;
         output = process(input);
 
     }

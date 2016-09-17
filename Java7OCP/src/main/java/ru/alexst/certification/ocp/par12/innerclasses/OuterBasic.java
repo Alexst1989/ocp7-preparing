@@ -12,8 +12,14 @@ To create an instance of an inner class, you must have an instance of the outer 
 tie to the inner class. There are no exceptions to this rule: An inner class instance
 can never stand alone without a direct relationship to an instance of the outer class
 
+Remember that a local class declared in a static method has access
+to only static members of the enclosing class, since there is no associated instance of
+the enclosing class. If you're in a static method, there is no this, so an inner class in a
+static method is subject to the same restrictions as the static method. In other words,
+no access to instance variables.
+
  */
-public class OuterBasic {
+public class OuterBasic { //This is the Top-Level Class !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
     private Integer x = 10;
 
@@ -43,8 +49,8 @@ public class OuterBasic {
             // InnerInner ii2 = new InnerInner();
 
             /*
-             * The same rules apply to method-local inner classes as to local variable declarations. You can't, for example, mark a method-local inner class public, private,
-             * protected, static
+             * The same rules apply to method-local inner classes as to local variable declarations. You can't, for
+             * example, mark a method-local inner class public, private, protected, static
              */
             class InnerInner {
 
@@ -78,6 +84,10 @@ public class OuterBasic {
         OuterBasic.Inner inner2 = new OuterBasic().new Inner();
 
         inner2.dodo();
+    }
+    
+    protected class Nested {
+        
     }
 
 }
