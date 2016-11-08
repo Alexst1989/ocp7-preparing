@@ -26,9 +26,9 @@ public class PathInfo {
         System.out.println(String.format("getFileName = %s", p.getFileName()));
         System.out.println(String.format("Names = %s %s %s", p.getName(0), p.getName(1), p.getName(2)));
         System.out.println(String.format("getNameCount = %s", p.getNameCount()));
-        System.out.println(String.format("getNameCount = %s", p.getParent()));
-        System.out.println(String.format("getNameCount = %s", p.getRoot()));
-        System.out.println(String.format("getNameCount = %s", p.subpath(0, 2)));
+        System.out.println(String.format("getParent = %s", p.getParent()));
+        System.out.println(String.format("getRoot = %s", p.getRoot()));
+        System.out.println(String.format("subpath(0, 2) = %s", p.subpath(0, 2)));
 
         // Iterating through path
         for (Path subPath : p) {

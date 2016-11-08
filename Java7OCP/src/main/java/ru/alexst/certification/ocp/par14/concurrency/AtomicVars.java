@@ -4,6 +4,33 @@
 package ru.alexst.certification.ocp.par14.concurrency;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.IntBinaryOperator;
+
+/*
+AtomicInteger
+ - compareAndSet(1, 5); //If current value is 1, then it will be set to 5 !!!!!!
+ - incrementAndGet(); //Increment current value by one
+ - decrementAndGet();
+ - getAndIncrement();
+ - getAndDecrement();
+ - getAndAccumulate(x, accumulatorFunction);
+ - getAndAdd(delta);
+ - getAndSet(newValue)
+ - setAndGet(newValue)
+ - getAndUpdate(updateFunction)
+ - updateAndGet(updateFunction)
+ - accumulateAndGet(2, new IntBinaryOperator() {
+            
+            @Override
+            public int applyAsInt(int left, int right) {
+                // TODO Auto-generated method stub
+                //left is current value in atomicInt
+                //right is first parameter in accumulateAndGet()
+                return (left+1)*right;
+            }
+        });
+ 
+*/
 
 /**
  * @author Алексей
@@ -36,7 +63,25 @@ public class AtomicVars {
 
         // to learn
         AtomicInteger atomicInt = new AtomicInteger();
-        atomicInt.incrementAndGet();
+        System.out.println(atomicInt.incrementAndGet());
+
+        
+        atomicInt.compareAndSet(1, 5); //If current value is 1, then it will be set to 5 !!!!!!
+        System.out.println("compare and set " + atomicInt.intValue());
+        atomicInt.accumulateAndGet(2, new IntBinaryOperator() {
+            
+            @Override
+            public int applyAsInt(int left, int right) {
+                // TODO Auto-generated method stub
+                //left is current value in atomicInt
+                //right is first parameter in accumulateAndGet()
+                return (left+1)*right;
+            }
+        });
+        System.out.println("accumulate " + atomicInt.intValue());
+        //atomicInt.addAndGet(delta);
+        atomicInt.decrementAndGet();
+        
         System.out.println(atomicInt.intValue());
         Integer i1 = 5;
         Integer i2 = 5;

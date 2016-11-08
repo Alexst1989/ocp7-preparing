@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ocp-test/ocp-test.iml" filepath="$PROJECT_DIR$/../ocp-test/ocp-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ocp7-preparing.iml" filepath="$PROJECT_DIR$/.idea/ocp7-preparing.iml" />
+    </modules>
+  </component>
+</project>

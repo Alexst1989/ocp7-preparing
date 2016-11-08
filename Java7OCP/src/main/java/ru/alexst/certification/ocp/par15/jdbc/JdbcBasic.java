@@ -1,6 +1,7 @@
 package ru.alexst.certification.ocp.par15.jdbc;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,12 @@ import org.apache.logging.log4j.Logger;
  
  executeQuery method CANNOT be used on INSERT, UPDATE, DELETE, or
 DDL SQL queries.
+
+DataBaseMetaData
+ - supportSavePoints() - true/false
+ - transaction isolation level
+ - Names of stored procedures
+ - All inforamtion about DataBase
 
  */
 
@@ -54,7 +61,6 @@ public class JdbcBasic {
                 LOGGER.info(String.format("%s %s %s", resultSet.getString("ID"), resultSet.getString("SHORT_NAME"),
                         resultSet.getString("FULL_NAME")));
             }
-
             Statement stmt2 = conn.createStatement();
             stmt2.executeQuery(TEST_QUERY);
 

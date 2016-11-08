@@ -23,7 +23,7 @@ public class OuterBasic { //This is the Top-Level Class !!!!!!!!!!!!!!!!!!!!!!!!
 
     private Integer x = 10;
 
-    class Inner {
+    protected class Inner { //Can be private public default protected abstract final static  !!!!!!!!!!!
 
         private Integer x = 20;
 
@@ -52,7 +52,7 @@ public class OuterBasic { //This is the Top-Level Class !!!!!!!!!!!!!!!!!!!!!!!!
              * The same rules apply to method-local inner classes as to local variable declarations. You can't, for
              * example, mark a method-local inner class public, private, protected, static
              */
-            class InnerInner {
+            class InnerInner { //Can only be final or abstract !!!!!!!!!!!!1
 
                 private Integer x = 30;
 
@@ -82,7 +82,6 @@ public class OuterBasic { //This is the Top-Level Class !!!!!!!!!!!!!!!!!!!!!!!!
         OuterBasic ib = new OuterBasic();
         OuterBasic.Inner innerInstance = ib.new Inner();
         OuterBasic.Inner inner2 = new OuterBasic().new Inner();
-
         inner2.dodo();
     }
     

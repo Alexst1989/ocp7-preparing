@@ -29,6 +29,7 @@ public class PosixFileAttributeLearn {
 
         Path path = Paths.get(homePath + "\\posixDir");
         PosixFileAttributeView posixView = Files.getFileAttributeView(path, PosixFileAttributeView.class);
+        
         Set<PosixFilePermission> perms = PosixFilePermissions.fromString("rw-r--r--");
         posixView.setPermissions(perms);
         Files.setPosixFilePermissions(path, perms);

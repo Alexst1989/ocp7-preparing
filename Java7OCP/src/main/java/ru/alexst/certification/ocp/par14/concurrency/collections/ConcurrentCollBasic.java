@@ -35,6 +35,7 @@ public class ConcurrentCollBasic {
         concurrentLinkedDeque.offer("5"); // First in queue
         concurrentLinkedDeque.offer("15");
         concurrentLinkedDeque.offer("10");
+        
         System.out.println(String.format("Next = %s", concurrentLinkedDeque.poll())); // retreives and removes the head of the queue
 
         System.out.println();

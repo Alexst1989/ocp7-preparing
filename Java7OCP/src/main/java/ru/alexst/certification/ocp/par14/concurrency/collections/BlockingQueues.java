@@ -59,7 +59,6 @@ public class BlockingQueues {
         Thread t2 = new Thread(taskCreator);
         t1.start();
         t2.start();
-
         try {
             Thread.sleep(80000);
         } catch (InterruptedException e) {
