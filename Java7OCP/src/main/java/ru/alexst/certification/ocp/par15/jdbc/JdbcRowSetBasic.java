@@ -12,7 +12,35 @@ import javax.sql.rowset.RowSetProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/*
+JdbcRowSet extends RowSet, Joinable - connected row set
+    
+    CachedRowSet extends RowSet, Joinable - disconnected row set
+        - WebRowSet extends CachedRowSet - disconnected row set
+            - JoinRowSet extends WebRowSet - disconnected row set
+            - FilteredRowSet extends WebRowSet - disconnected row set
+    
 
+RowSet is a ResultSet
+
+JbdcRowSet A connected RowSet; acts as JavaBeans component by providing a thin wrapper around
+            a ResultSet; useful for applications that benefit from the event model supported by
+            JdbcRowSet.
+            
+CachedRowSet A disconnected RowSet; provides an offline representation of a RowSet; useful for
+            applications where the data needs to be available when the database is not (for example,
+            in a portable device).
+            
+WebRowSet A CachedRowSet that can write itself as an XML file and read an XML file to re-create a
+            WebRowSet. Useful in applications where XML data is a requirement.
+            
+FilteredRowSet A WebRowSet that provides the additional capability of filtering its contents.
+            FilteredRowSets can use a Predicate object to control what data is returned.
+            
+            
+JoinRowSet A WebRowSet that can combine related data from multiple RowSets into a single
+            JoinRowSet. A useful alternative to the use of a SQL JOIN statement. 
+ */
 
 public class JdbcRowSetBasic {
     
